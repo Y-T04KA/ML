@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>238a9250-3740-4cdb-9f49-ce739bf521b6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>work2_24.py</StartupFile>
+    <StartupFile>work3_24_fpgrowth.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="work3_24_fpgrowth.py" />
     <Compile Include="work2_24.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
