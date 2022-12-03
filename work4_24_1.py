@@ -3,10 +3,8 @@ import seaborn as sns
 import numpy as np
 from sklearn.cluster import KMeans
 
-
 def evk(point, data):
     return np.sqrt(np.sum((point - data) ** 2, axis=1))
-
 
 class MyKmeans:
     def __init__(self, n_clusters=8, max_iter=300, eps=0.01):
