@@ -61,7 +61,7 @@ def get_distance_measure(M):
         return average_link
 
 
-class AgglomerativeHierarchicalClustering:
+class AggCluster:
     def __init__(self, data, K, M):
         self.data = data
         self.N = len(data)
@@ -75,9 +75,7 @@ class AgglomerativeHierarchicalClustering:
     def find_closest_clusters(self):
         min_dist = math.inf
         closest_clusters = None
-
         clusters_ids = list(self.clusters.keys())
-
         for i, cluster_i in enumerate(clusters_ids[:-1]):
             for j, cluster_j in enumerate(clusters_ids[i + 1:]):
                 dist = self.measure(self.clusters[cluster_i], self.clusters[cluster_j])
@@ -87,7 +85,6 @@ class AgglomerativeHierarchicalClustering:
 
     def merge_and_form_new_clusters(self, ci_id, cj_id):
         new_clusters = {0: self.clusters[ci_id] + self.clusters[cj_id]}
-
         for cluster_id in self.clusters.keys():
             if (cluster_id == ci_id) | (cluster_id == cj_id):
                 continue
@@ -114,15 +111,15 @@ dataset = np.array([[1, 1, 1, 0, 1],
                     [1, 0, 1, 0, 1],
                     [1, 1, 1, 0, 1]])
 print("Single")
-agg_hierarchical_clustering = AgglomerativeHierarchicalClustering(dataset, 1, 0)
+agg_hierarchical_clustering = AggCluster(dataset, 1, 0)
 agg_hierarchical_clustering.run_algorithm()
 
 print("Complete")
-agg_hierarchical_clustering = AgglomerativeHierarchicalClustering(dataset, 1, 1)
+agg_hierarchical_clustering = AggCluster(dataset, 1, 1)
 agg_hierarchical_clustering.run_algorithm()
 
 print("Average")
-agg_hierarchical_clustering = AgglomerativeHierarchicalClustering(dataset, 1, 2)
+agg_hierarchical_clustering = AggCluster(dataset, 1, 2)
 agg_hierarchical_clustering.run_algorithm()
 ###pictures
 ytdist = dataset
